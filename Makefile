@@ -9,4 +9,4 @@ build:
 	@git add _site && git commit -m "Build" && git push origin
 
 update: build
-	ssh $(SERVER) "sudo bash ~/update_web.sh"
+	$(shell ssh $(SERVER) "sudo bash ~/update_web.sh")
