@@ -218,7 +218,13 @@
 <ul>
   <li><strong><a href="https://ysyx.oscc.cc/en/">The “One Student One Chip” (一生一芯) Project</a></strong>
     <ul>
-      <li><strong>Software:</strong> Implemented NEMU, a RISC-V emulator for teaching purposes, supporting RV32IM instructions up to now.</li>
+      <li><strong>Software:</strong> Implemented NEMU, a RISC-V emulator for teaching purposes, supporting RV32IM instructions up to now.
+        <ul>
+          <li>Support execution of RV32IM instructions.</li>
+          <li>Implement some of <code class="language-plaintext highlighter-rouge">libc</code> functions: <code class="language-plaintext highlighter-rouge">str_</code> and <code class="language-plaintext highlighter-rouge">mem_</code> functions in <code class="language-plaintext highlighter-rouge">string.c</code>, and <code class="language-plaintext highlighter-rouge">sprintf</code> with <code class="language-plaintext highlighter-rouge">%d</code>, <code class="language-plaintext highlighter-rouge">%u</code> and <code class="language-plaintext highlighter-rouge">%s</code>.</li>
+          <li>Use Spike as a reference source for differential testing, comparing register status after execution of every instruction.</li>
+        </ul>
+      </li>
       <li><strong>Hardware:</strong> Currently developing a single-cycle RISC-V CPU using Verilog.</li>
       <li>Student ID: ysyx_24070014 <a href="https://www.danghr.com/ysyx/record">[Learning Record]</a> <a href="https://www.danghr.com/ysyx/code">[Code]</a></li>
     </ul>
