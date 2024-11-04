@@ -21,8 +21,7 @@ hvr -> hover
   --code-aaaaaa: #aaaaaa;
   --code-999999: #999999;
   --code-888888: #888888;
-  --code-555555: #555555;
-}
+  --code-555555: #555555; }
 
 :root {
   --L-a-text-hover-change: 0.8;
@@ -68,8 +67,7 @@ hvr -> hover
   --L-splitter-blockquote-and-section: 15%;
   --L-bg: 10%;
   --L-small-in-a: 60%;
-  --L-table-header-and-dt: 90%;
-}
+  --L-table-header-and-dt: 90%; }
 
 @media print, (prefers-color-scheme: light) {
   :root {
@@ -94,8 +92,4 @@ hvr -> hover
     --L-bg: 100%;
     --L-splitter-blockquote-and-section: 90%;
     --L-small-in-a: 47%;
-    --L-table-header-and-dt: 27%;
-  }
-}
-
-/*# sourceMappingURL=colors-auto-default-dark.css.map */
+    --L-table-header-and-dt: 27%; } }
