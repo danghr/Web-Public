@@ -22,8 +22,8 @@
 {"@context":"https://schema.org","@type":"WebSite","headline":"Haoran Dang 党浩然","name":"Haoran Dang 党浩然","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danghr.com/file/Haoran_Dang.jpg"}},"url":"https://www.danghr.com/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/colors-auto.css?v=83b5656049638d02cbb5b2f5a1d115e16571d0b4">
-    <link rel="stylesheet" href="/assets/css/style.css?v=83b5656049638d02cbb5b2f5a1d115e16571d0b4">
+    <link rel="stylesheet" href="/assets/css/colors-auto.css?v=2e131df2cfe2823b25d28f20f298e0509b7752bb">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2e131df2cfe2823b25d28f20f298e0509b7752bb">
 
     <link rel="preload" href="/file/Haoran_Dang.jpg" as="image">
     <!--[if lt IE 9]>
@@ -209,7 +209,7 @@
 
 <h3 id="publications">Publications<!-- An empty line is needed before the item --></h3>
 <ul>
-  <li><u>Haoran Dang</u>, Meng Wu, Mingyu Yan, Xiaochun Ye, Dongrui Fan, “<strong>GDL-GNN: Applying GPU Dataloading of Large Datasets for Graph Neural Network Inference</strong>”, <em>International European Conference on Parallel and Distributed Computing (Euro-Par)</em>, 2024. DOI: <a href="https://doi.org/10.1007/978-3-031-69766-1_24">10.1007/978-3-031-69766-1_24</a> <a href="https://github.com/danghr/GDL-GNN">[Code]</a></li>
+  <li><u>Haoran Dang</u>, Meng Wu, Mingyu Yan, Xiaochun Ye, Dongrui Fan, “<strong>GDL-GNN: Applying GPU Dataloading of Large Datasets for Graph Neural Network Inference</strong>”, <em>International European Conference on Parallel and Distributed Computing (Euro-Par)</em>, 2024. DOI: <a href="https://doi.org/10.1007/978-3-031-69766-1_24">10.1007/978-3-031-69766-1_24</a></li>
   <li><u>Haoran Dang</u>, Chongnan Ye, Yanpeng Hu, Chundong Wang, “<strong>NobLSM: an LSM-tree with Non-blocking Writes for SSDs</strong>,” <em>ACM/IEEE Design Automation Conference (DAC)</em>, 2022. DOI: <a href="https://doi.org/10.1145/3489517.3530470">10.1145/3489517.3530470</a> <small>(Open Access)</small>
 <br />
 <a href="/publications">[Full Publication List]</a></li>
@@ -217,7 +217,40 @@
 <p></p>
 <p><!-- Compensate the empty space after the list --></p>
 
-<h3 id="projects">Projects</h3>
+<h3 id="research-projects">Research Projects</h3>
+
+<ul>
+  <li><strong>GDL-GNN: GPU Dataloading for GNN Inference</strong>   <a href="https://doi.org/10.1007/978-3-031-69766-1_24">[Paper]</a>   <a href="https://github.com/danghr/GDL-GNN">[Code]</a>
+    <ul>
+      <li><strong>Motivation:</strong> Graph neural networks (GNNs) suffer from performance bottlenecks due to inefficient data transfer between host and device memory during inference.</li>
+      <li><strong>Solution:</strong>
+        <ul>
+          <li><em>Partition the large graph into subgraphs that can fit in GPU memory.</em> Include features of halo nodes (the neighbors outside the partition) to ensure all the data required for the inference of a subgraph is contained within the subgraph itself, avoiding memory access outside the GPU during inference.</li>
+          <li><em>Use hop-masks to avoid unnecessary computation and storage.</em> Compute only on the necessary nodes of each layer in the GNN model to reduce both memory and time consumption.</li>
+          <li><em>Hide load latency and optimize for multiple GPUs.</em> Overlap the inference of the current subgraph with the loading of the next one. Distribute subgraphs dynamically across GPUs to achieve natural load balancing.</li>
+        </ul>
+      </li>
+      <li><strong>Result:</strong> Significantly reduces inference time while maintaining the accuracy of full-graph inference.</li>
+    </ul>
+  </li>
+  <li><strong>NobLSM: LSM-tree with Non-blocking Writes</strong>   <a href="https://doi.org/10.1145/3489517.3530470">[Paper]</a>
+    <ul>
+      <li><strong>Motivation:</strong> NoSQL databases using log-structured merge (LSM) trees often experience performance bottlenecks during the compaction process, with a significant portion of the latency caused by blocking <code class="language-plaintext highlighter-rouge">sync</code> operations when generating new SSTable files.</li>
+      <li><strong>Solution:</strong>
+        <ul>
+          <li><em>Delay the deletion of old SSTables until the new SSTable is safely stored.</em> Use a <code class="language-plaintext highlighter-rouge">map</code> to track the relationship between old and new SSTables, keeping the old ones until the new ones are safely stored.</li>
+          <li><em>Utilize the periodic commit of the file-system journal.</em> Since the commit of a journal transaction containing the <code class="language-plaintext highlighter-rouge">inode</code> occurs after the data blocks are written on the disk, this commit ensures the safe storage of the file.</li>
+          <li>Based on the above mechanisms, <em>safely remove the blocking <code class="language-plaintext highlighter-rouge">fsync</code>/<code class="language-plaintext highlighter-rouge">fdatasync</code> operations during the generation of SSTables in compactions</em>.</li>
+        </ul>
+      </li>
+      <li><strong>Result:</strong> Outperforms state-of-the-art competitors while maintaining the same level of consistency.</li>
+    </ul>
+  </li>
+</ul>
+<p></p>
+<p><!-- Compensate the empty space after the list --></p>
+
+<h3 id="coursework-projects">Coursework Projects</h3>
 
 <ul>
   <li><strong><a href="https://ysyx.oscc.cc/en/">The “One Student One Chip” (一生一芯) Project</a></strong> <br /> Student ID: ysyx_24070014   <a href="https://www.danghr.com/ysyx/record">[Learning Record]</a>   <a href="https://www.danghr.com/ysyx/code">[Code]</a>
@@ -275,7 +308,7 @@
   <tbody>
     <tr>
       <td>2024-05</td>
-      <td>Outstanding Student</td>
+      <td>Outstanding Student (AY 2023-2024)</td>
       <td>UCAS</td>
     </tr>
     <tr>
