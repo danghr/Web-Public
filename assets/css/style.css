@@ -250,7 +250,9 @@ footer {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  width: 205px;
+  height: 205px; }
 
 .overlay {
   position: fixed;
